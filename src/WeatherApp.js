@@ -5,6 +5,7 @@ import "./WeatherApp.css";
 export default function WeatherApp(props) {
   const [city, setCity] = useState(props.city);
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const apiKey = `932dccfce347762cffb3c2a4870d3177`;
   function getWeatherData(response) {
     setWeatherData({
       ready: true,
@@ -19,7 +20,6 @@ export default function WeatherApp(props) {
     });
   }
   function makeApiCall() {
-    const apiKey = `932dccfce347762cffb3c2a4870d3177`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(getWeatherData);
   }
@@ -29,6 +29,14 @@ export default function WeatherApp(props) {
   function handleCity(event) {
     event.preventDefault();
     makeApiCall();
+  }
+  function findCurrentLocation(position) {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(getWeatherData);
+  }
+  function getLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(findCurrentLocation);
   }
   if (weatherData.ready) {
     return (
@@ -50,6 +58,7 @@ export default function WeatherApp(props) {
           <button
             className="btn btn-outline-secondary current-button"
             type="button"
+            onClick={getLocation}
           >
             CURRENT
           </button>

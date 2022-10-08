@@ -21,10 +21,11 @@ h1 {
   font-size: 57px;
   font-weight: 500;
   line-height: 1;
+  margin-left: 5px;
+  word-spacing: -0.4ch;
 }
 .units {
   font-size: 16px;
-  line-height: 1.5;
   vertical-align: top;
 }
 .units a {
