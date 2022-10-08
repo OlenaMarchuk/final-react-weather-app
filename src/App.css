@@ -1,17 +1,13 @@
-body {
-  display: block;
-  margin: 10px auto;
-  background: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
-  font-family: Arial, Helvetica, sans-serif;
-}
 .App {
   max-width: 600px;
   border: 3px solid white;
   padding: 10px 5px;
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;
 }
 footer {
   text-align: center;
   margin-top: 15px;
-  font-size: small;
+  font-size: 8px;
 }
