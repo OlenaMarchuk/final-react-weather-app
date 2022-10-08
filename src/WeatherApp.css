@@ -1,0 +1,10 @@
+.city-search {
+  border: 3px solid white;
+  background: #8dc5df;
+  font-style: italic;
+}
+.current-button,
+.search-button {
+  border: 3px solid white;
+  background: #8dc5df;
+}
