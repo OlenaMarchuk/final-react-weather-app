@@ -2,6 +2,14 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 export default function WeatherForecastDay(props) {
   let date = new Date(props.forecastData.dt * 1000);
+  function maxTemp() {
+    let maxTemp = Math.round(props.forecastData.temp.max);
+    return `${maxTemp}º`;
+  }
+  function minTemp() {
+    let minTemp = Math.round(props.forecastData.temp.min);
+    return `${minTemp}º`;
+  }
   function formatedDay() {
     let day = date.toLocaleString("eng", {
       weekday: "long",
@@ -29,12 +37,8 @@ export default function WeatherForecastDay(props) {
         <WeatherIcon icon={props.forecastData.weather[0].icon} size={45} />
       </div>
       <div>
-        <span className="forecast-day-temp">
-          {Math.round(props.forecastData.temp.max)}º
-        </span>{" "}
-        <span className="forecast-night-temp">
-          {Math.round(props.forecastData.temp.min)}º
-        </span>
+        <span className="forecast-day-temp">{maxTemp()}</span>{" "}
+        <span className="forecast-night-temp">{minTemp()}</span>
       </div>
     </div>
   );
