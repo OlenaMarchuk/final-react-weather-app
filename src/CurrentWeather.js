@@ -1,7 +1,7 @@
 import React from "react";
 import FormattedTime from "./FormattedTime";
 import WeatherIcon from "./WeatherIcon";
-import WeatherTemperature from "./WeatherTemperature";
+
 import "./CurrentWeather.css";
 export default function CurrentWeather(props) {
   return (
@@ -30,7 +30,10 @@ export default function CurrentWeather(props) {
           <span className="icon float-start">
             <WeatherIcon icon={props.weatherData.icon} size={50} />
           </span>
-          <WeatherTemperature tempCelsius={props.weatherData.temperature} />
+          <span className="current-temp">
+            {Math.round(props.weatherData.temperature)}{" "}
+          </span>
+          <span className="units">ºC</span>
         </div>
         <div className="col-6">
           <ul className="additional-info">

@@ -12,7 +12,7 @@ export default function WeatherForecastDay(props) {
   }
   function formatedDay() {
     let day = date.toLocaleString("eng", {
-      weekday: "long",
+      weekday: "short",
     });
 
     return day;
